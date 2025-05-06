@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>graal-poly</groupId>
+  <artifactId>graal-poly</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>graal-poly</name>
+
+  <properties>
+    <graal.version>24.2.0</graal.version>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.graalvm.polyglot</groupId>
+      <artifactId>python-community</artifactId>
+      <version>${graal.version}</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.graalvm.polyglot</groupId>
+      <artifactId>js-community</artifactId>
+      <version>${graal.version}</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.graalvm.python</groupId>
+      <artifactId>python-embedding</artifactId>
+        <version>${graal.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.graalvm.python</groupId>
+        <artifactId>graalpy-maven-plugin</artifactId>
+        <version>${graal.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>process-graalpy-resources</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <resourceDirectory>GRAALPY-VFS</resourceDirectory>
+          <packages>
+            <package>pygal==3.0</package>
+          </packages>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

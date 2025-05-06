@@ -1,0 +1,14 @@
+{
+  "name": "graal-poly",
+  "version": "1.0.0",
+  "description": "This simple project is meant as a jumping off point for a polyglot Python Java application on GraalVM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^3.24.3"
+  }
+}
